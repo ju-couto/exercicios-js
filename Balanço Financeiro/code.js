@@ -1,13 +1,13 @@
 function code(entries) {
-    let value = 0
-    entries.forEach(entry =>{
-        if(entry.type == 'CREDIT'){
-            value += entry.value
+    const value = entries.reduce((acc, entry) => {
+        if(entry.type === 'CREDIT') {
+            return acc + entry.value;
         } else {
-            value -= entry.value
+            return acc - entry.value;
         }
-    })
-    return value
+    }
+    , 0);
+    return value;
 }
 
 module.exports = code
