@@ -1,12 +1,9 @@
 function code(entries) {
-    const approved = []
-    entries.forEach(entry => {
-        if (entry.nota >= 5) {
-            approved.push(entry.nome)
-        }
-    })
-   return approved
 
+    const aprovados = entries.filter((entry) => entry.nota >= 5)
+    const aprovadosNomes = aprovados.map((aprovado)=> aprovado.nome)
+    return aprovadosNomes
 }
 
+code([{ nota: 10, nome: "Lucas" }, { nota: 4, nome: "João" }, { nota: 7, nome: "Maria" }])
 module.exports = code
